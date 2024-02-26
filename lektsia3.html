@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>web</title>
+        <script src="lektsiajs3.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <b>Заполните поля для регистрации</b>
+        <form name="registration">
+            Фио<input name="username" size="20" maxlength="40"><br>
+            Логин<input name="login" size="20" maxlength="40"><br>
+            Пароль<input name="password" size="20" maxlength="40"><br>
+            
+            Род занятий<br>
+            <input type="radio" name="status">Студент<br>
+            <input type="radio" name="status">Школьник<br>
+            <input type="radio" name="status">Служащий<br>
+            
+            Регион<br>
+            <select name="region" size="1">
+                <option value="0">Калужская обл-ть
+                <option value="1">Московская обл-ть
+            </select><br>
+            
+            О себе<br>
+            <textarea name="about_you" rows="5" cols="30"></textarea><br>
+            
+            С правилами согласен<input type="checkbox" name="confirm"><br>
+
+            <input type="button" value="Зарегестрироваться" onclick="test(this.form)">
+        </form>
+
+        <div id="result1"></div>
+        <div id="result2"></div>
+        <div id="result3"></div>
+        <div id="result4"></div>
+        <div id="result5"></div>
+        <div id="result6"></div>
+        <div id="result7"></div>
+    </body>
