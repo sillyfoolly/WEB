@@ -133,7 +133,7 @@ function task9(){
     button.style.display = "none"
     let dt1 = new Date(window.prompt('Первая дата. Год', 2024),window.prompt('Первая дата. Месяц', 2)-1,window.prompt('Первая дата. День', 14),window.prompt('Первая дата. Часы',0),window.prompt('Первая дата. Минуты',0));
     let dt2 = new Date(window.prompt('Вторая дата. Год', 2024),window.prompt('Вторая дата. Месяц', 2)-1,window.prompt('Вторая дата. День', 21),window.prompt('Вторая дата. Часы',0),window.prompt('Вторая дата. Минуты',0));
-    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),'(',dt1.getHours(),':',dt1.getMinutes(),')',' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'(',dt2.getHours(),':',dt2.getMinutes(),')','</p>','<p>',(dt2-dt1)/3600000/24,' дней</p>','<h1>Задание 10</h1>','<button type="button" id="btn9" onclick="task10();">start</button>');
+    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'</p>','<p>',(dt2-dt1)/3600000/24,' дней</p>','<h1>Задание 10</h1>','<button type="button" id="btn9" onclick="task10();">start</button>');
 }
 
 function task10(){
@@ -141,7 +141,7 @@ function task10(){
     button.style.display = "none"
     let dt1 = new Date(window.prompt('Первая дата. Год', 2024),window.prompt('Первая дата. Месяц', 2)-1,window.prompt('Первая дата. День', 7),window.prompt('Первая дата. Часы',0),window.prompt('Первая дата. Минуты',0));
     let dt2 = new Date(window.prompt('Вторая дата. Год', 2024),window.prompt('Вторая дата. Месяц', 2)-1,window.prompt('Вторая дата. День', 21),window.prompt('Вторая дата. Часы',0),window.prompt('Вторая дата. Минуты',0));
-    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),'(',dt1.getHours(),':',dt1.getMinutes(),')',' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'(',dt2.getHours(),':',dt2.getMinutes(),')','</p>','<p>',(dt2-dt1)/3600000/24/7,' недель</p>','<h1>Задание 11</h1>','<button type="button" id="btn10" onclick="task11();">start</button>');
+    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'</p>','<p>',(dt2-dt1)/3600000/24/7,' недель</p>','<h1>Задание 11</h1>','<button type="button" id="btn10" onclick="task11();">start</button>');
 }
 
 function task11(){
@@ -149,5 +149,63 @@ function task11(){
     button.style.display = "none"
     let dt1 = new Date(window.prompt('Первая дата. Год', 2024),window.prompt('Первая дата. Месяц', 4)-1,window.prompt('Первая дата. День', 1),window.prompt('Первая дата. Часы',0),window.prompt('Первая дата. Минуты',0));
     let dt2 = new Date(window.prompt('Вторая дата. Год', 2024),window.prompt('Вторая дата. Месяц', 5)-1,window.prompt('Вторая дата. День', 1),window.prompt('Вторая дата. Часы',0),window.prompt('Вторая дата. Минуты',0));
-    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),'(',dt1.getHours(),':',dt1.getMinutes(),')',' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'(',dt2.getHours(),':',dt2.getMinutes(),')','</p>','<p>',(dt2-dt1)/3600000/24/30,' месяцев</p>','<h1>Задание 12</h1>','<button type="button" id="btn11" onclick="task12();">start</button>');
+    window.document.write('<p>Разница между ',dt1.getDate(),'.',(dt1.getMonth()+1),'.',dt1.getFullYear(),' и ',dt2.getDate(),'.',(dt2.getMonth()+1),'.',dt2.getFullYear(),'</p>','<p>',(dt2-dt1)/3600000/24/30,' месяцев</p>','<h1>Задание 12</h1>','<button type="button" id="btn11" onclick="task12();">start</button>');
+}
+
+function task12(){
+    let button = document.getElementById('btn11');
+    button.style.display = "none"
+    let my = window.prompt('мм/гггг','03/2024')
+    let dt = new Date(my.match(/\d\d\d\d/), my.match(/\d\d/) - 1, 1)
+    window.document.write('<table><tr>(', dt.getMonth()+1,'/', dt.getFullYear(), ')</tr><tr><td>Пн</td><td>Вт</td><td>Ср</td><td>Чт</td><td>Пт</td><td>Сб</td><td>Вс</td></tr><tr>') 
+    for (i = 1, d = 1; d <= 31; ++i){
+        dt.setDate(d)
+        if (dt.getDate() != d) 
+            break
+        if (dt.getDay() == i){
+            window.document.write('<td>', dt.getDate(), '</td>')
+            ++d
+        }
+        else if (i == 7){
+            window.document.write('<td>', dt.getDate(), '</td>')
+            ++d
+            i = 0
+            window.document.write('</tr><tr>')
+        }
+        else
+            window.document.write('<td></td>')
+    }
+    window.document.write('</tr></table><h1>Задание 12</h1><button type="button" id="btn12" onclick="task13();">start</button>')
+}
+
+function task13(){
+    let button = document.getElementById('btn12');
+    button.style.display = "none"
+    let dmy = window.prompt('дд/мм/гггг','06/03/2024')
+    let arr = dmy.split('/')
+    let dt = new Date(arr[2], arr[1] - 1, arr[0])
+    window.document.write('<p>', dmy,'</p>')
+    switch(dt.getDay()){
+        case 1:
+            window.document.write('Понедельник')
+            break;
+        case 2:
+            window.document.write('Вторник')
+            break;
+        case 3:
+            window.document.write('Среда')
+            break;
+        case 4:
+            window.document.write('Четверг')
+            break;
+        case 5:
+            window.document.write('Пятница')
+            break;
+        case 6:
+            window.document.write('Суббота')
+            break;
+        case 0:
+            window.document.write('Воскресенье')
+            break;
+    }
 }
