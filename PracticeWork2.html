@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>web</title>
+        <script src="PracticeWork2.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <h1>Задание 1</h1>
+        Почтовый код <input name="postcode" placeholder="00000-0000" size="12" maxlength="10" onchange='checkcode(this.value)'>
+        <div id="check1" style="display: inline">&#10006</div>
+        
+        <br><h1>Задание 2</h1>
+        Номер телефона <input name="number" placeholder="777-777-7777" size="14" maxlength="13" onchange='checknumber(this.value)'>
+        <div id="check2" style="display: inline">&#10006</div>
+        
+        <br><h1>Задание 3</h1>
+        <form name="registration">
+            Фамилия <input name="lastname" size="12" maxlength="10" onchange='checkname(this.value)'>
+            <div id="check3" style="display: inline">&#10006</div>
+            
+            <br>Возраст 
+            <select name="age" size="1" onchange='checkage()'>
+                <option value="0">10-20
+                <option value="1">20-30
+                <option value="2">30-40
+                <option value="3">>40
+            </select>   
+            <div id="check4" style="display: inline">&#10006</div>
+            
+            <br>Страна проживания 
+            <select name="age" size="1" onchange='checkcountry(this.value)'>
+                <option value="0">Россия
+                <option value="1">Германия
+                <option value="2">Украина
+                <option value="3">Польша
+            </select>   
+            <div id="check5" style="display: inline">&#10006</div>
+            
+            <br>E-mail 
+            <input type="text" value="" id="email" name="mail" size="15" maxlength="64" onchange='checkemail(this.value)'>
+            <div id="check6" style="display: inline">&#10006</div>
+            
+            <br>Код регистрации продукта
+            <input id="product1" name="product" size="10" maxlength="10" onchange='checkprod()'>
+            <input id="product2" name="product" size="10" maxlength="10" onchange='checkprod()'>
+            <input id="product3" name="product" size="10" maxlength="10" onchange='checkprod()'>
+            <div id="check7" style="display: inline">&#10006</div><br>
+
+            <input id="secret1" size="12" maxlength="10" style="visibility: hidden" disabled="1">
+            <input id="secret2" size="12" maxlength="10" style="visibility: hidden" onchange='checkname(this.value)'>
+    </body>
+</html>
