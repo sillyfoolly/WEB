@@ -1,4 +1,5 @@
 let ok1 = 0; let ok2 = 0; let ok3 = 0; let ok4 = 0; let ok5 = 0;
+let timerId;
 
 function checkcode(value){
     let regexp = /\b\d{5}\b|\b(-\d{4})\b/;
@@ -42,12 +43,12 @@ function checkage(){
 function checkcountry(value){
     document.getElementById("check5").innerHTML = "&#10004"
     ok3 = 1;
-    final();
+    // final();
     switch(value){
-        case "0": document.getElementById("email").value = ".ru"; break;
-        case "1": document.getElementById("email").value = ".de"; break;
-        case "2": document.getElementById("email").value = ".ru"; break;
-        case "3": document.getElementById("email").value = ".ru"; break;
+        case "0": document.getElementById("email").value = ".ru"; final(); break;
+        case "1": document.getElementById("email").value = ".de"; final(); break;
+        case "2": document.getElementById("email").value = ".ua"; final(); break;
+        case "3": document.getElementById("email").value = ".pl"; final(); break;
     }
 }
 
@@ -78,10 +79,23 @@ function checkprod(){
 }
 
 function final(){
-    alert(c)
-    if (ok1 & ok2 & ok3 & ok4 & ok5) {
-        // document.getElementById("check7").innerHTML = "govno";
+    if ((ok1 == 1) & (ok2 == 1) & (ok3 == 1) & (ok4 == 1) & (ok5 == 1)) {
         document.getElementById("secret1").style = "visibility: visible";
         document.getElementById("secret2").style = "visibility: visible";
+        document.getElementById("secret1").value = Math.random().toString(36).slice(7)
+        timerId = setInterval(() => document.getElementById("secret1").value = Math.random().toString(36).slice(7), 30000)
+    }
+}
+
+
+function checksecret(value){
+    if (value == document.getElementById("secret1").value){
+        alert("Победа")
+        clearInterval(timerId)
+    }
+    else{
+        document.getElementById("secret1").value = Math.random().toString(36).slice(7)
+        clearInterval(timerId)
+        timerId = setInterval(() => document.getElementById("secret1").value = Math.random().toString(36).slice(7), 30000)
     }
 }
