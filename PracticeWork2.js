@@ -43,7 +43,6 @@ function checkage(){
 function checkcountry(value){
     document.getElementById("check5").innerHTML = "&#10004"
     ok3 = 1;
-    // final();
     switch(value){
         case "0": document.getElementById("email").value = ".ru"; final(); break;
         case "1": document.getElementById("email").value = ".de"; final(); break;
